@@ -137,9 +137,14 @@ if(!isset($_SESSION['username'])){
                             </div>
                         </div>
                         <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                            <div class="card-header d-inline-flex justify-content-between">
+                                <div>
+                                    <i class="fas fa-table me-1"></i>
+                                    DataTable Example
+                                </div>
+                                <div class="">
+                                    <a href="tambah.php">Tambah Data</a>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">

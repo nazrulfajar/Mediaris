@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['username'])){
+    header("location:login.php");
+} else {
+    $uesrname = $_SESSION["username"];
+}
+
   if(isset($_POST['tambah'])){
     include '../includes/config.php';
     var_dump($_POST);
@@ -14,12 +22,16 @@
     $input = mysqli_query($config, "insert into items (type, brand, model, img, rental_fee, availability, description) values
     ('$type','$brand','$model','$img','$rental_fee','$availability','$description')");
     if($input){
-      echo "<h3>Data Berhasil di Tambahkan</h3>";
-      echo "<a href = 'tambah.php>Kembali</a>";
+      echo "<script>
+      alert('Data berhasil di tambahkan');
+      </script>";
+      header('location:items.php');
     }
     else{
-      echo "<h3>Data Gagal di Tambahkan</h3>";
-      echo "<a href = 'tambah.php>Kembali</a>";
+      echo "<script>
+      alert('Data Gagal di tambahkan');
+      </script>";
+      header('location:login.php');
     }
   }
 ?>
